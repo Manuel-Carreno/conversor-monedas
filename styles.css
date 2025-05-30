@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+body {
+    background: linear-gradient(to bottom, #000000 40%, #e2681c);
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.05); /*aprender esto*/
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow:0 8px 15px rgba(0, 0, 0, 0.2); /*aprender esto*/
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(#ffffff 20%, #888787);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.data-required input,
+select {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    width: 100%;
+}
+
+
+.data-required{
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    width: 46vh;
+}
+
+.submit-button {
+    margin-top: 30px;
+    background-color:#e2681c ;
+    color:#ffffff ;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /*aprender esto*/
+    font-family:'DM Sans', sans-serif;
+    width: 40vh;
+    margin-left: 35px;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: #c7c4c4;
+}
+
+#result {
+    color: white;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
