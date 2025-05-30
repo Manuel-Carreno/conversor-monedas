@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion de Monedas</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="container">
+        <h1>Conversor de Monedas</h1>
+
+        <form id="forms">
+            <div class="data-required">
+                <label for="amount">Cantidad:</label>
+                <input type="number" id="amount" placeholder="Ej:1000" required>
+            </div>
+
+            <label for="currency-select">De:</label>
+            <select id="from-currency-select">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="COP">COP</option>
+                <option value="MXN">MXN</option>
+            </select>
+
+            <label for="currency-to">A:</label>
+            <select id="to-currency-select">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="COP">COP</option>
+                <option value="MXN">MXN</option>
+            </select>
+
+            <button class="submit-button">Realizar Conversión</button>
+        </form>
+
+        <p id="result"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
