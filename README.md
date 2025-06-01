@@ -3,4 +3,4 @@ This is a personal project develop by myself to convert currencies in real time.
 
 This project was build with HTML, CSS, JS and Node.js for the backend. Is fully deployed using Vercel
 
-Deploy Project: https://conversor-monedas-woad.vercel.app/
+Deployed Project: https://conversor-monedas-woad.vercel.app/
