@@ -17,18 +17,14 @@ module.exports = async(req, res) => {
   }
 
   try {
-    const response = await axios.get('https://api.exchangerate.host/convert', {
+    const response = await axios.get('https://api.exchangerate-api.com/v4/latest/${from}', {
       params: { from, to, amount }
     });
 
+    console.log("resp api:", response.data);
 
     const result = response.data.result;
-    console.log({
-      from,
-      to,
-      amount: parseFloat(amount),
-      converted: result
-    });
+    
 
 
     res.status(200).json({
