@@ -9,8 +9,11 @@ form.addEventListener('submit', async (e) => {
   const to = document.getElementById('to-currency-select').value
 
   if(amount<0){
-    alert('The amount must be positive')
-    return;
+    Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "The amount must be positive",
+    });
   }
 
   try {
