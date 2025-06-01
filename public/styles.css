@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 body {
-    background: linear-gradient(to bottom, #000000 40%, #e2681c);
+    background: linear-gradient(to bottom, #000000 40%, #1c29e2);
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 100px 20px;
@@ -22,9 +22,9 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    background: linear-gradient(#ffffff 20%, #888787);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(#ffffff 20%, #888787);  /*aprender esto*/
+    -webkit-background-clip: text; /*aprender esto*/
+    -webkit-text-fill-color: transparent; /*aprender esto*/
 }
 
 form {
@@ -39,8 +39,7 @@ label {
     text-align: left;
 }
 
-.data-required input,
-select {
+.data-required input, select {
     border-radius: 10px;
     padding: 10px;
     font-size: 1rem;
@@ -58,7 +57,7 @@ select {
 
 .submit-button {
     margin-top: 30px;
-    background-color:#e2681c ;
+    background-color:#1c29e2 ;
     color:#ffffff ;
     font-weight: bold;
     padding: 10px;

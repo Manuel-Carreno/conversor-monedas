@@ -1,5 +1,5 @@
 {
-  "name": "practicas",
+  "name": "portafolio",
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.9.0",
     "express": "^5.1.0"
   }
 }
