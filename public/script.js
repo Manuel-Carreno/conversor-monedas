@@ -42,7 +42,7 @@ form.addEventListener ('submit', (e) => {
   Remember these values are an approximation.<br>
   For more info visit: <a href="https://www.google.com/search?q=google+exchange+rate" target="_blank">Google Exchange Rate</a>`;
 
-
+  extraMessage.style.color = "white"
 
 
 })
