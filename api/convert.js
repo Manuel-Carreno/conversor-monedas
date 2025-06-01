@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
     });
 
     if (!response.data || response.data.result === undefined) {
+      console.log("Respuesta invalida de la api de exchangehost", response.data);
       return res.status(500).json({ error: 'No se pudo obtener el tipo de cambio' });
     }
   
