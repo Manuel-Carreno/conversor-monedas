@@ -9,7 +9,7 @@ form.addEventListener('submit', async (e) => {
   const to = document.getElementById('to-currency-select').value;
 
   try {
-    const res = await fetch(`https://conversor-monedas-backend.vercel.app/api/convert?amount=${amount}&from=${from}&to=${to}`);
+    const res = await fetch(`/api/convert?amount=${amount}&from=${from}&to=${to}`);
     const data = await res.json();
 
     if (data.error) {
