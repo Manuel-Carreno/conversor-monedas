@@ -14,29 +14,32 @@ const availabeRates = {
   NZD: { USD: 0.61, EUR: 0.57, JPY: 98.5, GBP: 0.49, AUD: 0.91, CAD: 0.83, CHF: 0.56, CNH: 4.55, HKD: 4.78, NZD: 1 },
 };
 
-if(amount<0) {
-  Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "The amount must be positive",
-  timer: 2500,
+form.addEventListener ('submit', (e) => {
+  e.preventDefault();
+
+  const amount= parseFloat(document.getElementById('amount').value);
+  const form = document.getElementById('form').value;
+  const to= document.getElementById('to').value;
+
+  if(amount<0) {
+    Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "The amount must be positive",
+    timer: 2500,
   });
   return;
 }
-
-
-form.addEventListener ('submit', (e) => {
-  e.preventDefault;
-
-  const amount= parseFloat(document.getElementById('amount'));
-  const form = document.getElementById('form');
-  const to= document.getElementById('to');
-
   const rate =availabeRates[from][to];
 
   const converted = amount*rate;
   result.textContent= `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
 
-  
+
 
 })
+
+
+
+
+
