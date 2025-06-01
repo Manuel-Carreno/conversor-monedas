@@ -37,6 +37,11 @@ form.addEventListener ('submit', (e) => {
   const converted = amount*rate;
   result.textContent= `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
 
+  const extraMessage = document.getElementById('extra-message');
+  extraMessage.innerHTML = `
+  Remember these values are an approximation.<br>
+  For more info visit: <a href="https://www.google.com/search?q=google+exchange+rate" target="_blank">Google Exchange Rate</a>`;
+
 
 
 
