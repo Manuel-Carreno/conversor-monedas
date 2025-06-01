@@ -2,17 +2,19 @@ const form = document.getElementById('forms');
 const result = document.getElementById('result');
 
 const availabeRates = {
-  USD: { USD: 1, EUR: 0.93, JPY: 157.35, GBP: 0.79, AUD: 1.51, CAD: 1.36, CHF: 0.91, CNH: 7.25, HKD: 7.82, NZD: 1.63 },
-  EUR: { USD: 1.08, EUR: 1, JPY: 168.87, GBP: 0.85, AUD: 1.62, CAD: 1.47, CHF: 0.98, CNH: 7.78, HKD: 8.40, NZD: 1.75 },
-  JPY: { USD: 0.0064, EUR: 0.0059, JPY: 1, GBP: 0.005, AUD: 0.0096, CAD: 0.0087, CHF: 0.0058, CNH: 0.046, HKD: 0.050, NZD: 0.010 },
-  GBP: { USD: 1.27, EUR: 1.18, JPY: 199.5, GBP: 1, AUD: 1.89, CAD: 1.73, CHF: 1.15, CNH: 9.18, HKD: 9.85, NZD: 2.06 },
-  AUD: { USD: 0.66, EUR: 0.62, JPY: 105.3, GBP: 0.53, AUD: 1, CAD: 0.91, CHF: 0.61, CNH: 4.87, HKD: 5.20, NZD: 1.09 },
-  CAD: { USD: 0.74, EUR: 0.68, JPY: 115.3, GBP: 0.58, AUD: 1.10, CAD: 1, CHF: 0.67, CNH: 5.35, HKD: 5.71, NZD: 1.20 },
-  CHF: { USD: 1.10, EUR: 1.02, JPY: 171.6, GBP: 0.87, AUD: 1.64, CAD: 1.49, CHF: 1, CNH: 7.98, HKD: 8.51, NZD: 1.79 },
-  CNH: { USD: 0.14, EUR: 0.13, JPY: 21.5, GBP: 0.11, AUD: 0.21, CAD: 0.19, CHF: 0.13, CNH: 1, HKD: 1.07, NZD: 0.22 },
-  HKD: { USD: 0.13, EUR: 0.12, JPY: 20.1, GBP: 0.10, AUD: 0.19, CAD: 0.18, CHF: 0.12, CNH: 0.93, HKD: 1, NZD: 0.21 },
-  NZD: { USD: 0.61, EUR: 0.57, JPY: 98.5, GBP: 0.49, AUD: 0.91, CAD: 0.83, CHF: 0.56, CNH: 4.55, HKD: 4.78, NZD: 1 },
+  USD: { USD: 1, EUR: 0.93, JPY: 157.35, GBP: 0.79, AUD: 1.51, CAD: 1.36, CHF: 0.91, CNH: 7.25, HKD: 7.82, NZD: 1.63, COP: 3900 },
+  EUR: { USD: 1.08, EUR: 1, JPY: 168.87, GBP: 0.85, AUD: 1.62, CAD: 1.47, CHF: 0.98, CNH: 7.78, HKD: 8.40, NZD: 1.75, COP: 4200 },
+  JPY: { USD: 0.0064, EUR: 0.0059, JPY: 1, GBP: 0.005, AUD: 0.0096, CAD: 0.0087, CHF: 0.0058, CNH: 0.046, HKD: 0.050, NZD: 0.010, COP: 24.8 },
+  GBP: { USD: 1.27, EUR: 1.18, JPY: 199.5, GBP: 1, AUD: 1.89, CAD: 1.73, CHF: 1.15, CNH: 9.18, HKD: 9.85, NZD: 2.06, COP: 4900 },
+  AUD: { USD: 0.66, EUR: 0.62, JPY: 105.3, GBP: 0.53, AUD: 1, CAD: 0.91, CHF: 0.61, CNH: 4.87, HKD: 5.20, NZD: 1.09, COP: 2600 },
+  CAD: { USD: 0.74, EUR: 0.68, JPY: 115.3, GBP: 0.58, AUD: 1.10, CAD: 1, CHF: 0.67, CNH: 5.35, HKD: 5.71, NZD: 1.20, COP: 2900 },
+  CHF: { USD: 1.10, EUR: 1.02, JPY: 171.6, GBP: 0.87, AUD: 1.64, CAD: 1.49, CHF: 1, CNH: 7.98, HKD: 8.51, NZD: 1.79, COP: 4200 },
+  CNH: { USD: 0.14, EUR: 0.13, JPY: 21.5, GBP: 0.11, AUD: 0.21, CAD: 0.19, CHF: 0.13, CNH: 1, HKD: 1.07, NZD: 0.22, COP: 540 },
+  HKD: { USD: 0.13, EUR: 0.12, JPY: 20.1, GBP: 0.10, AUD: 0.19, CAD: 0.18, CHF: 0.12, CNH: 0.93, HKD: 1, NZD: 0.21, COP: 500 },
+  NZD: { USD: 0.61, EUR: 0.57, JPY: 98.5, GBP: 0.49, AUD: 0.91, CAD: 0.83, CHF: 0.56, CNH: 4.55, HKD: 4.78, NZD: 1, COP: 2300 },
+  COP: { USD: 0.00026, EUR: 0.00024, JPY: 0.040, GBP: 0.00020, AUD: 0.00038, CAD: 0.00034, CHF: 0.00024,CNH: 0.00185, HKD: 0.0020, NZD: 0.00044, COP: 1}
 };
+
 
 form.addEventListener ('submit', (e) => {
   e.preventDefault();
@@ -34,6 +36,7 @@ form.addEventListener ('submit', (e) => {
 
   const converted = amount*rate;
   result.textContent= `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
+
 
 
 
