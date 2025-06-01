@@ -18,8 +18,8 @@ form.addEventListener ('submit', (e) => {
   e.preventDefault();
 
   const amount= parseFloat(document.getElementById('amount').value);
-  const form = document.getElementById('form').value;
-  const to= document.getElementById('to').value;
+  const from = document.getElementById('from-currency-select').value;
+  const to= document.getElementById('to-currency-select').value;
 
   if(amount<0) {
     Swal.fire({
