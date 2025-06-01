@@ -12,6 +12,9 @@ module.exports = async (req, res) => {
       params: { from, to, amount }
     });
 
+    if (!response.data || response.data.result === undefined) {
+      return res.status(500).json({ error: 'No se pudo obtener el tipo de cambio' });
+    }
   
     const result = response.data.result;
 
