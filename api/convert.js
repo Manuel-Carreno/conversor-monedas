@@ -1,39 +1,40 @@
-const axios = require('axios');
+import axios from 'axios';
 
-module.exports = async(req, res) => {
-  const { amount, from, to } = req.query;
+export async function handleConversion(req, res) {
+  const { from, to, amount } = req.query;
 
-  if (!from || !to || !amount) {
-    return res.status(400).json({ error: 'Faltan valores para realizar la conversión' });
+  if (!from || !to || isNaN(amount)) {
+    return res.status(400).json({ error: 'No hay datos suficientes para realizar la conversion' });
   }
 
-  if(from===to){
-     return res.status(200).json({
+  if (from === to) {
+    return res.json({
       from,
       to,
-      amount: parseFloat(amount),
-      converted: parseFloat(amount)
+      amount: Number(amount),
+      converted: Number(amount),
     });
   }
 
   try {
-    const response = await axios.get('https://api.exchangerate.host/convert', {
-      params: { from, to, amount }
+    const response = await axios.get('https://api.frankfurter.app/latest', {
+      params: {
+        amount,
+        from,
+        to,
+      },
     });
 
-    console.log("resp api:", response.data);
-    const rate = response.data.result[to];
+    const converted = response.data.rates[to];
 
-    const result= parseFloat(amount)*rate;
-
-    res.status(200).json({
+    res.json({
       from,
       to,
-      amount: parseFloat(amount),
-      converted: result
+      amount: Number(amount),
+      converted,
     });
-
   } catch (error) {
-    res.status(500).json({ error: 'Error al convertir monedas' });
+    console.error('Error al convertir moneda:', error.message); //para debugear
+    res.status(500).json({ error: 'Error al convertir moneda' });
   }
-};
+}
