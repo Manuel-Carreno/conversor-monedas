@@ -6,7 +6,13 @@ form.addEventListener('submit', async (e) => {
 
   const amount = document.getElementById('amount').value;
   const from = document.getElementById('from-currency-select').value;
-  const to = document.getElementById('to-currency-select').value;
+  const to = document.getElementById('to-currency-select')
+
+  if(amount<0){
+    result.textContent='The amount must be positive';
+    return;
+  }
+
 
   try {
     const res = await fetch(`/api/convert?amount=${amount}&from=${from}&to=${to}`);
