@@ -13,6 +13,7 @@ form.addEventListener('submit', async (e) => {
     icon: "error",
     title: "Oops...",
     text: "The amount must be positive",
+    timer: 2500,
     });
     return;
   }

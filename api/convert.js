@@ -23,6 +23,13 @@ module.exports = async(req, res) => {
 
 
     const result = response.data.result;
+    console.log({
+      from,
+      to,
+      amount: parseFloat(amount),
+      converted: result
+    });
+
 
     res.status(200).json({
       from,
