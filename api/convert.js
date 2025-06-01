@@ -1,10 +1,19 @@
-const axios = require('axios');
+import axios from 'axios';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   const { amount, from, to } = req.query;
 
   if (!from || !to || !amount) {
     return res.status(400).json({ error: 'Faltan valores para realizar la conversión' });
+  }
+
+  if (from === to) {
+    return res.status(200).json({
+      from,
+      to,
+      amount: parseFloat(amount),
+      converted: parseFloat(amount)
+    });
   }
 
   try {
@@ -13,20 +22,19 @@ module.exports = async (req, res) => {
     });
 
     if (!response.data || response.data.result === undefined) {
-      console.log("Respuesta invalida de la api de exchangehost", response.data);
+      console.log("Respuesta inválida:", response.data);
       return res.status(500).json({ error: 'No se pudo obtener el tipo de cambio' });
     }
-  
-    const result = response.data.result;
 
     res.status(200).json({
       from,
       to,
       amount: parseFloat(amount),
-      converted: result
+      converted: response.data.result
     });
 
   } catch (error) {
+    console.error("Error al llamar a la API:", error.message);
     res.status(500).json({ error: 'Error al convertir monedas' });
   }
-};
+}
