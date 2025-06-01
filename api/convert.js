@@ -22,10 +22,9 @@ module.exports = async(req, res) => {
     });
 
     console.log("resp api:", response.data);
+    const rate = response.data.result[to];
 
-    const result = response.data.result;
-    
-
+    const result= parseFloat(amount)*rate;
 
     res.status(200).json({
       from,
