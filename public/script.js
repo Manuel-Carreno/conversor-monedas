@@ -14,6 +14,7 @@ form.addEventListener('submit', async (e) => {
     title: "Oops...",
     text: "The amount must be positive",
     });
+    return;
   }
 
   try {
