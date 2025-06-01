@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-export default async function handler(req, res) {
+module.exports = async(req, res) => {
   const { amount, from, to } = req.query;
 
   if (!from || !to || !amount) {
