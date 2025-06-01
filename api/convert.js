@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
       params: { from, to, amount }
     });
 
+    console.log('API response:', response.data);
     const result = response.data.result;
 
     res.status(200).json({
